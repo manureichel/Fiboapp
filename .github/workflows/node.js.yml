@@ -2,9 +2,9 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
+        description: 'Opcionessss: '     
         required: true
-        default: 'warning'
+        default: 'debug'
         options:
           - debug
           - info
