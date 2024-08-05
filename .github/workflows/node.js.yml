@@ -2,14 +2,9 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Opcionessss: '     
+        description: 'Log level (choose one: debug, info, warning, error)'     
         required: true
-        default: 'debug'
-        options:
-          - debug
-          - info
-          - warning
-          - error
+        default: 'warning'
       tags:
         description: 'Test scenario tags'  
 
@@ -17,6 +12,16 @@ jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
+    - name: Validate log level
+      run: |
+        case "${{ github.event.inputs.logLevel }}" in
+          debug|info|warning|error)
+            echo "Log level: ${{ github.event.inputs.logLevel }}"
+            ;;
+          *)
+            echo "Invalid log level: ${{ github.event.inputs.logLevel }}"
+            exit 1
+            ;;
+        esac
     - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
         echo "Tags: ${{ github.event.inputs.tags }}"
