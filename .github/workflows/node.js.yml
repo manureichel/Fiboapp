@@ -5,6 +5,11 @@ on:
         description: 'Log level'     
         required: true
         default: 'warning'
+        options:
+          - debug
+          - info
+          - warning
+          - error
       tags:
         description: 'Test scenario tags'  
 
@@ -14,4 +19,4 @@ jobs:
     steps:
     - run: |
         echo "Log level: ${{ github.event.inputs.logLevel }}"
-        echo "Tags: ${{ github.event.inputs.tags }}" 
+        echo "Tags: ${{ github.event.inputs.tags }}"
