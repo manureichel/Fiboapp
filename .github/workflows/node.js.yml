@@ -7,7 +7,7 @@ on:
         default: 'false'
         type: boolean
       run_step_two:
-        description: 'run_step_one???: '     
+        description: 'run_step_two??: '     
         required: true
         default: 'false'
         type: boolean
