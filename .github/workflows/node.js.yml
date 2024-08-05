@@ -5,10 +5,12 @@ on:
         description: 'run_step_one???: '     
         required: true
         default: 'false'
+        type: boolean
       run_step_two:
         description: 'run_step_one???: '     
         required: true
         default: 'false'
+        type: boolean
 
 jobs:
   build:
